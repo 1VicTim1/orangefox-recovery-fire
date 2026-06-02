@@ -22,6 +22,6 @@ on post-fs
 service create_pl_dev /system/bin/create_pl_dev
     user root
     group root
-    seclabel u:r:update_engine:s0
+    seclabel u:r:recovery:s0
     oneshot
     disabled
