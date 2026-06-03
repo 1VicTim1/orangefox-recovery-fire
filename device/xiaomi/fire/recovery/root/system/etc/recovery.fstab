@@ -1,6 +1,6 @@
 # <src>                                             <mnt_point>          <type>          <mnt_flags and options>                                                                                                               <fs_mgr_flags>
 
-# Core Partitions (Dynamic Partitions, ext4)   
+# Core Partitions (Dynamic Partitions, ext4)
 system                                              /system              ext4            ro wait,slotselect,logical
 vendor                                              /vendor              ext4            ro wait,slotselect,logical                                                                                                            wait,slotselect,avb,logical,first_stage_mount
 product                                             /product             ext4            ro wait,slotselect,logical                                                                                                            wait,slotselect,avb,logical,first_stage_mount
