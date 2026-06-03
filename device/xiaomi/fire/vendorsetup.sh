@@ -3,8 +3,8 @@ if [ -n "$_fox_top" ]; then
   export FOX_USE_SPECIFIC_MAGISK_ZIP="$_fox_top/device/xiaomi/fire/Magisk/Magisk-v28.0.zip"
 fi
 unset _fox_top
-export OF_FL_PATH1="/sys/class/leds/torch-light0"
-#export OF_FLASHLIGHT_ENABLE=1
+export OF_FL_PATH1="/tmp/fox_flashlight"
+export OF_FLASHLIGHT_ENABLE=1
 
 # Some about us
 export OF_MAINTAINER="mahdi-salimi05"
