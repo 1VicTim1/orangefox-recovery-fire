@@ -22,13 +22,14 @@
 OF_STATUS_INDENT_LEFT := 48
 OF_STATUS_INDENT_RIGHT := 48
 OF_HIDE_NOTCH := 1
-OF_CLOCK_POS := 1 
+OF_CLOCK_POS := 1
 
 # other stuff
 OF_IGNORE_LOGICAL_MOUNT_ERRORS := 1
 OF_USE_GREEN_LED := 0
-OF_QUICK_BACKUP_LIST := /boot;/data;
+OF_QUICK_BACKUP_LIST := /boot;/data;/super;
 OF_ENABLE_LPTOOLS := 1
+OF_SUPPORT_ALL_BLOCK_OTA_UPDATES := 1
 
 # ----- data format stuff -----
 # automatically wipe /metadata after data format

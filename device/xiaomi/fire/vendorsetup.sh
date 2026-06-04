@@ -1,53 +1,63 @@
+# OrangeFox build configuration for Xiaomi Redmi 12 (fire).
+
+_fox_device_path="device/xiaomi/fire"
 _fox_top="$(gettop 2>/dev/null)"
-if [ -n "$_fox_top" ]; then
-  export FOX_USE_SPECIFIC_MAGISK_ZIP="$_fox_top/device/xiaomi/fire/Magisk/Magisk-v28.0.zip"
+if [ -n "$_fox_top" ] && [ -f "$_fox_top/$_fox_device_path/Magisk/Magisk-v28.0.zip" ]; then
+  export FOX_USE_SPECIFIC_MAGISK_ZIP="$_fox_top/$_fox_device_path/Magisk/Magisk-v28.0.zip"
 fi
-unset _fox_top
-export OF_FL_PATH1="/tmp/fox_flashlight"
-export OF_FLASHLIGHT_ENABLE=1
+unset _fox_device_path _fox_top
 
-# Some about us
+# Build identity
+export FOX_BUILD_DEVICE="fire"
+export FOX_BUILD_TYPE="Unofficial"
 export OF_MAINTAINER="~VicTim~"
+export BUILD_USERNAME="VicTim"
+export BUILD_HOSTNAME="OrangeFox"
 
-# Build environment stuffs
-#export FOX_BUILD_DEVICE="Redmi12"
+# Build environment
 export ALLOW_MISSING_DEPENDENCIES=true
-export BUILD_USERNAME="nobody"
-export BUILD_HOSTNAME="android-build"
+export LC_ALL="C"
 
-# Use magisk boot for patching
+# Boot image patching
 export OF_USE_MAGISKBOOT=1
 export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
 export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
 
-# We have a/b partitions
+# A/B, virtual A/B and dynamic partitions
 export FOX_AB_DEVICE=1
 export FOX_VIRTUAL_AB_DEVICE=1
+export OF_ENABLE_LPTOOLS=1
+export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1
 
-# Screen specifications
+# Encryption and data format handling
+export OF_KEEP_FORCED_ENCRYPTION=1
+export OF_WIPE_METADATA_AFTER_DATAFORMAT=1
+
+# Screen and status bar
 export OF_STATUS_INDENT_LEFT=48
 export OF_STATUS_INDENT_RIGHT=48
+export OF_HIDE_NOTCH=1
 export OF_ALLOW_DISABLE_NAVBAR=0
 export OF_CLOCK_POS=1
 export OF_SCREEN_H=2460
 export OF_STATUS_H=120
 
-# Device stuff
-export OF_KEEP_FORCED_ENCRYPTION=1
+# Flashlight. The MTK torch node updates through brightness_clone.
+export OF_FLASHLIGHT_ENABLE=1
+export OF_FL_PATH1="/tmp/fox_flashlight"
+
+# Installer behavior
 export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
-
-# OTA for custom ROMs
 export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
-
-# Quick Backup list
-export OF_QUICK_BACKUP_LIST="/boot;/data;/super;"
-
-# Dont install AROMAFM
-export FOX_DELETE_AROMAFM=1
-
-# Add some extras
-export OF_ENABLE_LPTOOLS=1
-export FOX_USE_BASH_SHELL=1
-export FOX_USE_NANO_EDITOR=1
+export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
 export OF_NO_SPLASH_CHANGE=1
 export FOX_INSTALLER_DISABLE_AUTOREBOOT=1
+
+# Backup defaults
+export OF_QUICK_BACKUP_LIST="/boot;/data;/super;"
+
+# Extra tools
+export FOX_DELETE_AROMAFM=1
+export FOX_USE_BASH_SHELL=1
+export FOX_USE_NANO_EDITOR=1
+export OF_USE_GREEN_LED=0
