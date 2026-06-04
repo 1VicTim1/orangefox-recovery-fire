@@ -7,7 +7,7 @@ export OF_FL_PATH1="/tmp/fox_flashlight"
 export OF_FLASHLIGHT_ENABLE=1
 
 # Some about us
-export OF_MAINTAINER="mahdi-salimi05"
+export OF_MAINTAINER="~VicTim~"
 
 # Build environment stuffs
 #export FOX_BUILD_DEVICE="Redmi12"
